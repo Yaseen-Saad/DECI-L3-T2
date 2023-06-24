@@ -1,13 +1,30 @@
-# Dynamic Web Page Project
+<a name="readme-top"></a>
 
-This project requires you to build a multi-section landing page, with a dynamically updating navigational menu based on the amount of content that is added to the page.
 
----
+<div align="center">
+  <h3 align="center">DECI L3 T2 Project</h3>
 
-## Instructions
+  <p align="center">
+One Page Application    <br />
+    <a href="https://yaseen-saad.github.io/DECI-L3-T2">View Demo</a>
+    </p>
+</div>
 
-The starter project has some HTML and CSS styling to display a static version of the Dynamic Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
 
-To get started, open `js/app.js` and start building out the app's functionality
+#### Built With :
+* HTML
+* CSS
+* JavaScript
 
-For more detailed requirements, see the project instructions in the Udacity Classroom.
+
+## Description :
+
+this project uses the **getBoundingClientRect()** function to animate the active section in the screen.
+
+the comments section in this project is added dynamicly to DOM and added the ability to comment using the **addComment()** function.
+
+the form data in this project are validated, you have to enter A name, a valid email and a message with at least 5 words long and maximum length of 50 words.
+
+whe you click on the nav sections there is a smooth scrolling to the section you want.
+
+the project contains some sections in which each one has a h2 tag and to paragraphs.

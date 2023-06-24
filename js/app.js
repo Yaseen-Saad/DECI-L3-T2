@@ -1,3 +1,4 @@
+// Adding comments section
 const title = document.createElement("h2");
 title.textContent = "Comments";
 
@@ -18,21 +19,29 @@ const form = document.createElement("form");
 form.append(nameInput, emailInput, commentInput, submitButton);
 form.onsubmit = submitComment;
 
+const NOCOMMENTS = document.createElement("p");
+NOCOMMENTS.innerText = "No comments yet";
+
 const comments = document.createElement("div");
-comments.classList.add("comments")
+comments.classList.add("comments");
+comments.appendChild(NOCOMMENTS);
+
 const sectionForm = document.createElement("section");
 sectionForm.id = "Comments";
 sectionForm.classList.add("landing__container", "Section");
 sectionForm.setAttribute("data-nav", "Comments");
 sectionForm.append(title, comments, form);
 
+// Adding the functionality to comments
 function submitComment(event) {
   event.preventDefault();
+  // gathering comment data
   const data = {
     name: nameInput.value.trim(),
     email: emailInput.value.trim(),
     comment: commentInput.value.trim(),
   };
+  // validating comment data
   if (!data.name) {
     alert("Please enter a name");
   } else {
@@ -54,7 +63,9 @@ function submitComment(event) {
     }
   }
 }
+// adding the comment to the comments section
 function addComment(comment) {
+  NOCOMMENTS?.remove();
   const article = document.createElement("article");
   const name = document.createElement("h3");
   name.innerText = comment.name;
@@ -65,11 +76,12 @@ function addComment(comment) {
   article.append(comm, name, email);
   comments.append(article);
 }
-
+// inserting the comment to the DOM
 document
   .querySelector("footer")
   .insertAdjacentElement("beforebegin", sectionForm);
 
+// adding the nav dynamically
 const sections = document.querySelectorAll("body section.Section");
 const ul = document.querySelector(".navbar__menu #navbar__list");
 for (const section of sections) {
@@ -80,6 +92,7 @@ for (const section of sections) {
   ul.appendChild(ele);
 }
 
+// adding the functionality to the nav links
 ul.addEventListener("click", (e) => {
   const target = e.target.getAttribute("section-id");
   if (e.target.tagName == "LI") {
@@ -87,6 +100,7 @@ ul.addEventListener("click", (e) => {
     element.scrollIntoView({
       block: "end",
       behavior: "smooth",
+    
     });
 
     // another way to add the functionality of scrolling on clicking
@@ -104,6 +118,7 @@ ul.addEventListener("click", (e) => {
       );
   }
 });
+// adding the active class to the active section
 function addingActive() {
   const lies = [...document.querySelectorAll("li")];
   for (const section of sections) {
@@ -123,6 +138,7 @@ function addingActive() {
 addingActive();
 
 onscroll = addingActive;
+
 // another way for adding active class to sections
 
 /*  
